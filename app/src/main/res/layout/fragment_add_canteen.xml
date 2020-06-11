@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".add_canteen">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <EditText
+        android:id="@+id/management_name"
+        android:hint="Management Name"
+        android:gravity="center"
+        android:inputType="text"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:padding="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/managment_name"
+        android:drawableLeft="@drawable/managment_name" />
+    <EditText
+        android:id="@+id/handler"
+        android:layout_marginBottom="10dp"
+        android:hint="Handler"
+        android:gravity="center"
+        android:inputType="text"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:padding="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/handler"
+        android:drawableLeft="@drawable/handler" />
+    <EditText
+        android:id="@+id/mobile_no"
+        android:layout_marginBottom="10dp"
+        android:hint="Mobile No"
+        android:gravity="center"
+        android:inputType="number"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:padding="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/mobile"
+        android:drawableLeft="@drawable/mobile" />
+    <EditText
+        android:id="@+id/no_of_workers"
+        android:hint="No of Workers"
+        android:gravity="center"
+        android:layout_marginBottom="10dp"
+        android:inputType="number"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:padding="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <EditText
+        android:id="@+id/address"
+        android:layout_width="match_parent"
+        android:layout_height="83dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:drawableStart="@drawable/address"
+        android:drawableLeft="@drawable/address"
+        android:gravity="center"
+        android:hint="Address"
+        android:inputType="textMultiLine"
+        android:padding="15dp" />
+
+        <Button
+            android:id="@+id/create"
+            android:text="Create"
+            android:gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:padding="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+
+</LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
