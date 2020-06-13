@@ -34,6 +34,7 @@ public class Edit extends Fragment {
     ArrayList<canteen_detail> list;
     Spinner spinner;
     Object value;
+    EditText management;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              final Bundle savedInstanceState) {
@@ -89,12 +90,14 @@ public class Edit extends Fragment {
 
             }
         });
+        management = view.findViewById(R.id.number_to);
         view.findViewById(R.id.update).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String manag = management.getText().toString();
                 String changed = (String) change.getText().toString();
                 Toast.makeText(getContext(),""+value,Toast.LENGTH_SHORT).show();
-                reference.child("adeel").child("handler").setValue(changed);
+                reference.child(manag).child(String.valueOf(value)).setValue(changed);
 
             }
         });

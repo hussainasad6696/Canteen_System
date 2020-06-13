@@ -81,19 +81,7 @@ public class View_fragment extends Fragment {
 
             }
         });
-     /*   ref.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                final canteen_detail canteenDetail = dataSnapshot.getValue(canteen_detail.class);
-                list.add(canteenDetail);
-                adapter.notifyDataSetChanged();
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });*/
 
         searchView = view.findViewById(R.id.search);
         view.findViewById(R.id.search_btn).setOnClickListener(new View.OnClickListener() {
