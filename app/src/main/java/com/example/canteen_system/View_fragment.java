@@ -82,6 +82,23 @@ public class View_fragment extends Fragment {
             }
         });
 
+     /*  ref.addValueEventListener(new ValueEventListener() {
+           @Override
+           public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+               for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren())
+               {
+                  canteen_detail  canteenDetail = dataSnapshot1.getValue(canteen_detail.class);
+                  list.add(canteenDetail);
+               }
+               adapter.notifyDataSetChanged();
+
+           }
+
+           @Override
+           public void onCancelled(@NonNull DatabaseError databaseError) {
+                adapter.notifyDataSetChanged();
+           }
+       });*/
 
         searchView = view.findViewById(R.id.search);
         view.findViewById(R.id.search_btn).setOnClickListener(new View.OnClickListener() {

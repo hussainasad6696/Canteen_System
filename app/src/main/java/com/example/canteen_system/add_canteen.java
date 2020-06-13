@@ -36,7 +36,7 @@ public class add_canteen extends Fragment {
         view.findViewById(R.id.create).setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-               canteen_detail canteendetail = new canteen_detail(management.getText().toString(),handler.getText().toString(),address.getText().toString(),Long.parseLong(mobile.getText().toString()),Long.parseLong(no_of_workers.getText().toString()));
+               canteen_detail canteendetail = new canteen_detail(management.getText().toString(),handler.getText().toString(),address.getText().toString(),mobile.getText().toString(),no_of_workers.getText().toString());
                String key = databaseReference.push().getKey();
                if(key != null){
                databaseReference.child(mobile.getText().toString()).setValue(canteendetail).addOnSuccessListener(new OnSuccessListener<Void>() {

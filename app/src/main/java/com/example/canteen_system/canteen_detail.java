@@ -2,9 +2,9 @@ package com.example.canteen_system;
 
 public class canteen_detail {
     String management_detail,handler,address;
-    long mobile,no_of_worker;
+    String mobile,no_of_worker;
 
-    public canteen_detail(String management_detail, String handler, String address, long mobile, long no_of_worker) {
+    public canteen_detail(String management_detail, String handler, String address, String mobile, String no_of_worker) {
         this.management_detail = management_detail;
         this.handler = handler;
         this.address = address;
@@ -39,19 +39,19 @@ public class canteen_detail {
         this.address = address;
     }
 
-    public long getMobile() {
+    public String getMobile() {
         return mobile;
     }
 
-    public void setMobile(long mobile) {
+    public void setMobile(String mobile) {
         this.mobile = mobile;
     }
 
-    public long getNo_of_worker() {
+    public String getNo_of_worker() {
         return no_of_worker;
     }
 
-    public void setNo_of_worker(long no_of_worker) {
+    public void setNo_of_worker(String no_of_worker) {
         this.no_of_worker = no_of_worker;
     }
 }

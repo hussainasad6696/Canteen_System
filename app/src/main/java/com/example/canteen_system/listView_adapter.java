@@ -32,8 +32,8 @@ public class listView_adapter extends ArrayAdapter<canteen_detail> {
         String management_name = Objects.requireNonNull(getItem(position)).getManagement_detail();
         String handler = Objects.requireNonNull(getItem(position)).getHandler();
         String address = getItem(position).getAddress();
-        long mobile = getItem(position).getMobile();
-        long workers = getItem(position).getNo_of_worker();
+        String mobile = getItem(position).getMobile();
+        String workers = getItem(position).getNo_of_worker();
 
         LayoutInflater inflater = LayoutInflater.from(mcontext);
         convertView = inflater.inflate(mresource,parent,false);
@@ -45,8 +45,8 @@ public class listView_adapter extends ArrayAdapter<canteen_detail> {
         Address = convertView.findViewById(R.id.addres);
         Management.setText(management_name);
         Name.setText(handler);
-        Number.setText(String.valueOf(mobile));
-        Worker.setText(String.valueOf(workers));
+        Number.setText(mobile);
+        Worker.setText(workers);
         Address.setText(address);
         return convertView;
     }
