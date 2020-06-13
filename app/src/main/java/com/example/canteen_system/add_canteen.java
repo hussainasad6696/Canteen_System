@@ -39,7 +39,7 @@ public class add_canteen extends Fragment {
                canteen_detail canteendetail = new canteen_detail(management.getText().toString(),handler.getText().toString(),address.getText().toString(),Long.parseLong(mobile.getText().toString()),Long.parseLong(no_of_workers.getText().toString()));
                String key = databaseReference.push().getKey();
                if(key != null){
-               databaseReference.child(key).setValue(canteendetail).addOnSuccessListener(new OnSuccessListener<Void>() {
+               databaseReference.child(management.getText().toString()).setValue(canteendetail).addOnSuccessListener(new OnSuccessListener<Void>() {
                    @Override
                    public void onSuccess(Void aVoid) {
                        Toast.makeText(getContext(),"Canteen Added",Toast.LENGTH_SHORT).show();

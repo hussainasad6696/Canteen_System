@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="update_options">
+        <item>address</item>
+        <item>handler</item>
+        <item>management_detail</item>
+        <item>mobile</item>
+        <item>no_of_worker</item>
+    </string-array>
+</resources>

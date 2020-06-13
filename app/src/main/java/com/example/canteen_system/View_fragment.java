@@ -43,7 +43,7 @@ public class View_fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         View view = inflater.inflate(R.layout.fragment_view_fragment, container, false);
         final ListView listView = view.findViewById(R.id.list_view);
         data_key = new ArrayList<String>();
@@ -81,6 +81,19 @@ public class View_fragment extends Fragment {
 
             }
         });
+     /*   ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                final canteen_detail canteenDetail = dataSnapshot.getValue(canteen_detail.class);
+                list.add(canteenDetail);
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });*/
 
         searchView = view.findViewById(R.id.search);
         view.findViewById(R.id.search_btn).setOnClickListener(new View.OnClickListener() {
@@ -88,41 +101,6 @@ public class View_fragment extends Fragment {
             public void onClick(View v) {
                 String query_search = searchView.getQuery().toString();
                 deleteData(query_search);
-            }
-        });
-        reference = FirebaseDatabase.getInstance().getReference();
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                final String key_id = (String) data_key.get(position);
-                Toast.makeText(getContext(),""+key_id,Toast.LENGTH_SHORT).show();
-                /*AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                builder.setTitle("Delete!")
-                        .setMessage("Are you sure you want to Delete")
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-
-                            }
-                        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                    }
-                });*/
-                final Query query;
-                query = reference.child("Canteens").orderByChild(key_id);
-                query.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        String key = dataSnapshot.getKey();
-
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-                    }
-                });
             }
         });
         return view;
