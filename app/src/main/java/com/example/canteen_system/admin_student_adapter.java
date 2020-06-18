@@ -31,15 +31,15 @@ public class admin_student_adapter extends ArrayAdapter<students_detail> {
 
         String fname = Objects.requireNonNull(getItem(position)).getfName();
         String semester = Objects.requireNonNull(getItem(position)).getSemester();
-        String address = getItem(position).getAddress();
-        String mobile = getItem(position).getMobile();
-        String dob = getItem(position).getDob();
+        String address = Objects.requireNonNull(getItem(position)).getAddress();
+        String mobile = Objects.requireNonNull(getItem(position)).getMobile();
+        String dob = Objects.requireNonNull(getItem(position)).getDob();
 
         LayoutInflater inflater = LayoutInflater.from(mcontext);
         convertView = inflater.inflate(mresource,parent,false);
         TextView Fname,Semester,Number,DOB,Address;
         Fname = convertView.findViewById(R.id.name_student_container);
-        Semester = convertView.findViewById(R.id.semester);
+        Semester = convertView.findViewById(R.id.semester_student_container);
         Number = convertView.findViewById(R.id.number_student_container);
         DOB = convertView.findViewById(R.id.dob_student_container);
         Address = convertView.findViewById(R.id.addres_student_container);

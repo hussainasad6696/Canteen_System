@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="update_options_students">
+        <item>fName</item>
+        <item>semester</item>
+        <item>mobile</item>
+        <item>dob</item>
+        <item>address</item>
+    </string-array>
+</resources>

@@ -16,28 +16,46 @@
             android:layout_height="match_parent"
             android:padding="8dp">
 
+            <TextView
+                android:textColor="@color/colorblue"
+                android:id="@+id/name_student_container"
+                android:layout_width="183dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="115dp"
+                android:layout_marginLeft="115dp"
+                android:layout_marginEnd="115dp"
+                android:layout_marginRight="115dp"
+                android:text="Full_name"
+                android:textAllCaps="true"
+                android:textSize="25dp"
+                android:textStyle="bold" />
 
             <TextView
+                android:layout_below="@+id/name_student_container"
                 android:id="@+id/heading_handler"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:text="Full Name:"
+                android:text="Semester:"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/name_student_container"
+                android:id="@+id/semester_student_container"
                 android:textColor="@color/colorblue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/management"
+                android:layout_below="@+id/name_student_container"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_toRightOf="@+id/heading_handler"
-                android:text="Name"
+                android:text="Semester"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -58,7 +76,7 @@
                 android:textColor="@color/colorblue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/name_student_container"
+                android:layout_below="@+id/semester_student_container"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="12dp"
                 android:layout_toRightOf="@+id/mobile"
