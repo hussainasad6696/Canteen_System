@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".add_item">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <EditText
+            android:id="@+id/fodd_name"
+            android:hint="Food Name"
+            android:gravity="center"
+            android:inputType="text"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:padding="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/managment_name"
+            android:drawableLeft="@drawable/managment_name" />
+        <EditText
+            android:id="@+id/food_description"
+            android:layout_marginBottom="10dp"
+            android:hint="Item Description"
+            android:gravity="center"
+            android:inputType="text"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:padding="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/handler"
+            android:drawableLeft="@drawable/handler" />
+        <EditText
+            android:id="@+id/food_coast"
+            android:layout_marginBottom="10dp"
+            android:hint="Coast"
+            android:gravity="center"
+            android:inputType="number"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:padding="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/mobile"
+            android:drawableLeft="@drawable/mobile" />
+        <EditText
+            android:id="@+id/food_time_to_get_ready"
+            android:hint="Time to get ready"
+            android:gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:padding="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <EditText
+            android:id="@+id/food_item_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:drawableStart="@drawable/address"
+            android:drawableLeft="@drawable/address"
+            android:gravity="center"
+            android:inputType="number"
+            android:hint="Number of Items"
+            android:padding="15dp" />
+
+        <Button
+            android:id="@+id/add_items_toDB"
+            android:text="Add Items"
+            android:textAllCaps="false"
+            android:gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:padding="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

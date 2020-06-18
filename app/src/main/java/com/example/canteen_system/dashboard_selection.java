@@ -36,10 +36,11 @@ public class dashboard_selection extends Fragment {
                 startActivity(intent);
             }
         });
-        view.findViewById(R.id.user).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.canteen_worker).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(getContext(),canteen_worker.class);
+                startActivity(intent);
             }
         });
         return view;
