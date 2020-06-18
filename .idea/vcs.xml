@@ -3,6 +3,8 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Canteen" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/CustomKeyboard" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/GIT" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/simple-keyboard" vcs="Git" />
   </component>
 </project>

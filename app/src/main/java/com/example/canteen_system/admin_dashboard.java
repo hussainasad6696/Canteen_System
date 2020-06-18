@@ -53,6 +53,15 @@ public class admin_dashboard extends Fragment {
                 fragmentTransaction.commit();
             }
         });
+        view.findViewById(R.id.add_student).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.admin_fragment_container,new add_student());
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
         return view;
     }
 }
