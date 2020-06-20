@@ -15,6 +15,8 @@ import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,6 +27,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Objects;
+
+import es.dmoral.toasty.Toasty;
 
 public class view_items extends Fragment {
 
@@ -88,15 +92,24 @@ public class view_items extends Fragment {
         return view;
     }
     private void deleteData(String query_search) {
-        Query deleteQuery = ref.orderByChild("chips").equalTo(query_search);
+        Query deleteQuery = ref.orderByChild("food_name").equalTo(query_search);
         deleteQuery.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot deleteSnap : dataSnapshot.getChildren())
                 {
-                    deleteSnap.getRef().removeValue();
+                    deleteSnap.getRef().removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Toasty.success(getContext(), "Deleted", Toast.LENGTH_SHORT, true).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toasty.error(getContext(), "Failed To delete "+e, Toast.LENGTH_SHORT, true).show();
+                        }
+                    });
                 }
-                Toast.makeText(getContext(),"Data Deleted",Toast.LENGTH_SHORT).show();
             }
 
             @Override

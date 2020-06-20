@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="update_item">
+        <item>coast</item>
+        <item>food_name</item>
+        <item>item_descriptions</item>
+        <item>number_of_items</item>
+        <item>time_to_get_ready</item>
+    </string-array>
+</resources>
