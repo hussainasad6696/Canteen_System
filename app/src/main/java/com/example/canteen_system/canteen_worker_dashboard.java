@@ -45,6 +45,15 @@ public class canteen_worker_dashboard extends Fragment {
                 fragmentTransaction.commit();
             }
         });
+        view.findViewById(R.id.order).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.canteen_worker_fragcontainer,new View_all_orders());
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
         return view;
     }
 }

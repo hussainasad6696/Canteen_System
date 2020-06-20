@@ -43,6 +43,13 @@ public class dashboard_selection extends Fragment {
                 startActivity(intent);
             }
         });
+        view.findViewById(R.id.user).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(),student_login.class);
+                startActivity(intent);
+            }
+        });
         return view;
     }
 }
