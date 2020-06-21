@@ -42,18 +42,24 @@ public class add_student extends Fragment {
                 final String Mobile = mobile.getText().toString();
                 String DOB =  dob.getText().toString();
                 String ADDRESS =  address.getText().toString();
-                students_detail studentsDetail = new students_detail(fullname,Semester,ADDRESS,Mobile,DOB);
+                final students_detail studentsDetail = new students_detail(fullname,Semester,ADDRESS,Mobile,DOB);
                 String key = databaseReference.push().getKey();
                 if(key != null){
-                    databaseReference.child(mobile.getText().toString()).setValue(studentsDetail).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    String mail = fullname+"@gmail.com";
+                    auth.createUserWithEmailAndPassword(mail,Mobile).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                         @Override
-                        public void onSuccess(Void aVoid) {
-                            Toast.makeText(getContext(),"Student Added",Toast.LENGTH_SHORT).show();
-                            String mail = fullname+"@gmail.com";
-                            auth.createUserWithEmailAndPassword(mail,Mobile).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                        public void onSuccess(AuthResult authResult) {
+                            Toast.makeText(getContext(),"User "+fullname+" account created",Toast.LENGTH_SHORT).show();
+                            databaseReference.child(mobile.getText().toString()).setValue(studentsDetail).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
-                                public void onSuccess(AuthResult authResult) {
-                                    Toast.makeText(getContext(),"User "+fullname+" account created",Toast.LENGTH_SHORT).show();
+                                public void onSuccess(Void aVoid) {
+                                    Toast.makeText(getContext(),"Student Added",Toast.LENGTH_SHORT).show();
+
+                                    Fname.setText("");
+                                    semester.setText("");
+                                    mobile.setText("");
+                                    dob.setText("");
+                                    address.setText("");
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
@@ -61,18 +67,16 @@ public class add_student extends Fragment {
                                     Toast.makeText(getContext(),""+e,Toast.LENGTH_SHORT).show();
                                 }
                             });
-                            Fname.setText("");
-                            semester.setText("");
-                            mobile.setText("");
-                            dob.setText("");
-                            address.setText("");
+
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             Toast.makeText(getContext(),""+e,Toast.LENGTH_SHORT).show();
                         }
-                    });}
+                    });
+
+                }
             }
         });
 
