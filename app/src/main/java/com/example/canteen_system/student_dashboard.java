@@ -1,12 +1,17 @@
 package com.example.canteen_system;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
@@ -14,6 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -29,6 +35,7 @@ public class student_dashboard extends Fragment {
     ListView listView;
     ArrayList<order_list_detail> list;
     DatabaseReference reference;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -37,6 +44,7 @@ public class student_dashboard extends Fragment {
         reference = FirebaseDatabase.getInstance().getReference().child("Items_list");
         listView = view.findViewById(R.id.menu_list_view);
         list = new ArrayList<>();
+
         final Order_adapter adapter = new Order_adapter(getContext(),R.layout.order_container,list);
         listView.setAdapter(adapter);
         reference.addChildEventListener(new ChildEventListener() {
@@ -69,17 +77,18 @@ public class student_dashboard extends Fragment {
 
             }
         });
-
         view.findViewById(R.id.place_order).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                assert getFragmentManager() != null;
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.student_fragmentcontainer,new place_order());
-                    fragmentTransaction.addToBackStack(null);
-                    fragmentTransaction.commit();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.student_fragmentcontainer,new place_order());
+                transaction.addToBackStack(null);
+                transaction.commit();
             }
         });
+
         return view;
     }
+
+
 }

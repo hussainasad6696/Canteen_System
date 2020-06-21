@@ -39,7 +39,7 @@ public class View_all_orders extends Fragment {
     DatabaseReference reference;
     FirebaseAuth auth;
     EditText change;
-    ArrayList<order_list_detail> list;
+    ArrayList<String> list;
     ArrayList<String> prices;
     Spinner spinner;
     Object value;
@@ -55,34 +55,16 @@ public class View_all_orders extends Fragment {
         listView = view.findViewById(R.id.list_view_Orders);
         prices = new ArrayList<>();
         list = new ArrayList<>();
-        final Order_adapter adapter = new Order_adapter(getContext(),R.layout.order_container,list);
+        final ArrayAdapter adapter = new ArrayAdapter(getContext(),android.R.layout.simple_list_item_1,list);
         listView.setAdapter(adapter);
-        reference.addChildEventListener(new ChildEventListener() {
+        reference.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                order_list_detail orderDetail = dataSnapshot.getValue(order_list_detail.class);
-              //  String ordered_product = dataSnapshot.child("OrderName").getValue(String.class);
-             //   String ordered_price = dataSnapshot.child("OrderPrice").getValue(String.class);
-             //   order_list_detail orderDetail = new order_list_detail(ordered_product,ordered_price);
-                list.add(orderDetail);
-                assert orderDetail != null;
-                prices.add(orderDetail.getOrder_price());
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren())
+                {
+                    String values = dataSnapshot1.getValue().toString();
+                    list.add(values);
+                }
             }
 
             @Override
